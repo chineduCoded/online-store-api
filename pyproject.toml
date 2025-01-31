@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "online-store-api"
+version = "0.1.0"
+description = ""
+authors = ["chineduCoded <chinedujohn17@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "app", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.8"}
+sqlmodel = "^0.0.22"
+pydantic-settings = "^2.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
