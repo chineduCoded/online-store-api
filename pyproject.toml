@@ -13,6 +13,13 @@ python = "^3.12"
 fastapi = {extras = ["standard"], version = "^0.115.8"}
 sqlmodel = "^0.0.22"
 pydantic-settings = "^2.7.1"
+asyncpg = "^0.30.0"
+loguru = "^0.7.3"
+slowapi = "^0.1.9"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+alembic = "^1.14.1"
+psycopg2-binary = "^2.9.10"
+passlib = {extras = ["cryptography"], version = "^1.7.4"}
 
 
 [build-system]
