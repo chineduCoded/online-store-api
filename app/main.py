@@ -4,8 +4,9 @@ from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException
 import traceback
 
-from app.db import async_engine, sync_engine, create_db_and_tables
+from app.db import async_engine, sync_engine, create_db_and_tables, drop_db_and_tables
 from app.routers.admin import router as admin_router
+from app.routers.auth import router as auth_router
 from app.routers.users import router as users_router
 from app.routers.categories import router as categories_router
 from app.routers.products import router as products_router
@@ -19,6 +20,7 @@ settings = get_settings()
 async def lifespan(app: FastAPI):
     if settings.environment == Environment.DEV:
         await create_db_and_tables()
+        # await drop_db_and_tables()
         
     yield
     
@@ -53,6 +55,7 @@ async def root():
 
 
 app.include_router(admin_router, prefix="/api/v1", tags=["Admin"])
+app.include_router(auth_router, prefix="/api/v1", tags=["Auth"])
 app.include_router(users_router, prefix="/api/v1", tags=["Users"])
 app.include_router(categories_router, prefix="/api/v1",tags=["Categories"])
 app.include_router(products_router, prefix="/api/v1", tags=["Products"])

@@ -2,3 +2,4 @@ __pycache__/
 .qodo
 .env
 alembic.ini
+scripts/reset_db.py
